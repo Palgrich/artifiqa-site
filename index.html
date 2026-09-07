@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artifiqa — Product Studio</title>
+<meta name="description" content="Artifiqa builds focused software products. We ship things people actually use.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #F8F7F4;
+  --white:  #FFFFFF;
+  --ink:    #0F0F0F;
+  --ink2:   #555;
+  --ink3:   #999;
+  --border: #E2E0DA;
+  --max:    1080px;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+/* ── NAV ─────────────────────────────────────────────────── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(248,247,244,.92); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -.02em; }
+.nav-logo span { color: #888; font-weight: 400; }
+.nav-right { font-size: 14px; color: var(--ink3); font-weight: 500; }
+
+/* ── HERO ────────────────────────────────────────────────── */
+.hero { padding: 100px 40px 80px; max-width: var(--max); margin: 0 auto; }
+.hero-label { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 24px; }
+h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(42px, 6vw, 72px); font-weight: 700; line-height: 1.05; letter-spacing: -.03em; color: var(--ink); max-width: 700px; margin-bottom: 24px; }
+.hero-sub { font-size: 19px; color: var(--ink2); max-width: 520px; line-height: 1.6; margin-bottom: 48px; }
+.hero-stats { display: flex; gap: 48px; }
+.stat-item { }
+.stat-val { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -.02em; }
+.stat-lbl { font-size: 13px; color: var(--ink3); margin-top: 2px; }
+
+/* ── SECTION ─────────────────────────────────────────────── */
+.section { padding: 80px 40px; max-width: var(--max); margin: 0 auto; }
+.section-divider { border: none; border-top: 1px solid var(--border); margin: 0 40px; }
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 32px; }
+
+/* ── FEATURED PRODUCT (MoneyGator) ───────────────────────── */
+.featured-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 24px;
+  padding: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+  margin-bottom: 16px;
+}
+.product-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
+.product-name { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 12px; }
+.product-desc { font-size: 16px; color: var(--ink2); line-height: 1.65; margin-bottom: 24px; }
+.product-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+.tag { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 100px; border: 1px solid var(--border); color: var(--ink2); background: var(--bg); }
+.product-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-primary { display: inline-block; background: var(--ink); color: #fff; text-decoration: none; border-radius: 10px; padding: 10px 20px; font-size: 14px; font-weight: 600; font-family: inherit; transition: opacity .15s; }
+.btn-primary:hover { opacity: .8; }
+.btn-secondary { display: inline-block; border: 1px solid var(--border); color: var(--ink2); text-decoration: none; border-radius: 10px; padding: 10px 20px; font-size: 14px; font-weight: 600; font-family: inherit; background: var(--bg); transition: border-color .15s, color .15s; }
+.btn-secondary:hover { border-color: var(--ink); color: var(--ink); }
+.status-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 100px; margin-bottom: 16px; }
+.status-badge.active { background: #DCFCE7; color: #15803D; }
+.status-badge.active::before { content: ''; width: 6px; height: 6px; background: #22C55E; border-radius: 50%; animation: pulse 2s infinite; }
+.status-badge.acquired { background: #F3F4F6; color: #9CA3AF; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+/* Featured visual */
+.featured-visual { display: flex; justify-content: center; align-items: center; }
+.phone-mockup { width: 240px; background: #0F172A; border-radius: 32px; padding: 12px; box-shadow: 0 24px 60px rgba(0,0,0,.18); }
+.phone-screen { border-radius: 22px; overflow: hidden; }
+.phone-hdr { padding: 14px 14px 10px; }
+.phone-body { padding: 14px; background: #0F172A; }
+
+/* ── PRODUCT GRID ────────────────────────────────────────── */
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.product-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 20px;
+  padding: 28px; display: flex; flex-direction: column; gap: 0;
+  transition: border-color .2s, box-shadow .2s;
+}
+.product-card:hover { border-color: #bbb; box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+.product-card.muted { background: #F9F9F9; opacity: .7; }
+.card-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; flex-shrink: 0; }
+.card-name { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 6px; }
+.card-sub { font-size: 13px; color: var(--ink3); font-weight: 500; margin-bottom: 12px; }
+.card-desc { font-size: 14px; color: var(--ink2); line-height: 1.6; flex: 1; margin-bottom: 20px; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
+.card-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.card-tag { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 100px; background: var(--bg); border: 1px solid var(--border); color: var(--ink3); }
+.card-link { font-size: 13px; font-weight: 600; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+.card-link:hover { opacity: .6; }
+.acquired-note { font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--ink3); margin-top: 12px; }
+
+/* Sub-products */
+.sub-products { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.sub-product { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
+.sub-icon { font-size: 16px; }
+.sub-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+.sub-desc { font-size: 12px; color: var(--ink3); }
+.sub-link { font-size: 12px; color: var(--ink3); text-decoration: none; margin-left: auto; }
+.sub-link:hover { color: var(--ink); }
+
+/* ── TEAM ────────────────────────────────────────────────── */
+.team-row { display: flex; gap: 16px; }
+.team-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 28px; flex: 1; display: flex; gap: 20px; align-items: flex-start; }
+.team-avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.team-avatar-fallback { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.team-name { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 2px; }
+.team-role { font-size: 13px; color: var(--ink3); margin-bottom: 8px; }
+.team-bio { font-size: 13px; color: var(--ink2); line-height: 1.6; }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer { border-top: 1px solid var(--border); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; }
+.foot-logo { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -.02em; }
+.foot-right { font-size: 13px; color: var(--ink3); }
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .hero { padding: 80px 20px 60px; }
+  .section { padding: 60px 20px; }
+  .section-divider { margin: 0 20px; }
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-visual { display: none; }
+  .product-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 28px; }
+  .team-row { flex-direction: column; }
+  footer { flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Artifiqa <span>/ Studio</span></a>
+  <div class="nav-right">San Mateo, CA</div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-label">Product Studio</p>
+  <h1>We build software people actually use.</h1>
+  <p class="hero-sub">Artifiqa is a small studio. We find real problems, build focused products, and ship them. No bloat, no noise.</p>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-val">4</div><div class="stat-lbl">products built</div></div>
+    <div class="stat-item"><div class="stat-val">1</div><div class="stat-lbl">acquired</div></div>
+    <div class="stat-item"><div class="stat-val">2026</div><div class="stat-lbl">active</div></div>
+  </div>
+</header>
+
+<hr class="section-divider">
+
+<!-- FEATURED: MONEYGATOR -->
+<section class="section">
+  <p class="section-label">Featured</p>
+  <div class="featured-card">
+    <div>
+      <div class="status-badge active">Active · raising pre-seed</div>
+      <p class="product-eyebrow" style="color:#16A34A">EdTech · Finance</p>
+      <h2 class="product-name">MoneyGator</h2>
+      <p class="product-desc">Personalized money education, based on your actual accounts. MoneyGator connects to your bank and delivers one focused lesson per day — triggered by what's actually happening in your finances. No advisor required.</p>
+      <div class="product-tags">
+        <span class="tag">React Native</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">iOS</span>
+        <span class="tag">EdTech</span>
+      </div>
+      <div class="product-links">
+        <a href="https://moneygator.app" target="_blank" class="btn-primary">moneygator.app ↗</a>
+        <a href="mailto:pavel.volkov@moneygator.app" class="btn-secondary">Investor inquiries</a>
+      </div>
+    </div>
+    <div class="featured-visual">
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="phone-hdr" style="background:linear-gradient(135deg,#7C1D1D,#DC2626)">
+            <div style="font-size:10px;font-weight:700;color:#fff;background:rgba(255,255,255,.2);padding:3px 8px;border-radius:100px;display:inline-block;margin-bottom:8px">💳 Credit · 2 min</div>
+            <div style="height:3px;background:rgba(255,255,255,.2);border-radius:2px"><div style="width:65%;height:3px;background:#fff;border-radius:2px"></div></div>
+          </div>
+          <div style="padding:14px;background:#0F172A">
+            <div style="font-size:10px;color:#94A3B8;font-style:italic;margin-bottom:6px">· Chase Sapphire due in 2 days</div>
+            <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.3">Your $47 minimum keeps the bank happy. Not you.</div>
+            <div style="background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:7px;padding:7px 9px;margin-bottom:5px">
+              <div style="font-size:10px;font-weight:700;color:#fff">Pay $47 minimum <span style="color:#FF4B4B;float:right">TRAP</span></div>
+              <div style="font-size:9px;color:#94A3B8">Still paying in 2029</div>
+            </div>
+            <div style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);border-radius:7px;padding:7px 9px;margin-bottom:10px">
+              <div style="font-size:10px;font-weight:700;color:#fff">Pay more than $47 <span style="color:#22C55E;float:right">SMART</span></div>
+              <div style="font-size:9px;color:#94A3B8">Done sooner. You win.</div>
+            </div>
+            <div style="background:linear-gradient(135deg,#3730A3,#5B4FE8);border-radius:8px;padding:9px;text-align:center;font-size:11px;font-weight:700;color:#fff">Got it — quiz me 🧠</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- PRODUCT GRID -->
+<section class="section">
+  <p class="section-label">All products</p>
+  <div class="product-grid">
+
+    <!-- MOYSTER -->
+    <div class="product-card">
+      <div class="card-icon" style="background:#F0FDF4">🦪</div>
+      <div class="status-badge active" style="font-size:11px;padding:3px 10px">Active</div>
+      <div class="card-name">Moyster</div>
+      <div class="card-sub">Vivino for oysters</div>
+      <div class="card-desc">A mobile-first journal for people who take oysters seriously. Rate every oyster you try, keep notes and photos, see what friends thought, and find oyster bars around you. Catalog of 50+ varieties.</div>
+      <div class="card-tags" style="margin-bottom:12px">
+        <span class="card-tag">JavaScript</span>
+        <span class="card-tag">Firebase</span>
+        <span class="card-tag">PWA</span>
+        <span class="card-tag">Consumer</span>
+      </div>
+      <div class="card-footer">
+        <div></div>
+        <a href="https://moyster-a08b3.web.app" target="_blank" class="card-link">Open app ↗</a>
+      </div>
+    </div>
+
+    <!-- BARBACKFLOW GROUP -->
+    <div class="product-card">
+      <div class="card-icon" style="background:#EFF6FF">🍺</div>
+      <div class="status-badge active" style="font-size:11px;padding:3px 10px">Active</div>
+      <div class="card-name">BarBackFlow</div>
+      <div class="card-sub">Bar & F&B operations</div>
+      <div class="card-desc">Shift-level operations software for food service. Replaces paper slips and group texts with structured tools for restocking, inter-unit transfers, daily checklists, and manager reporting.</div>
+      <div class="sub-products">
+        <div class="sub-product">
+          <span class="sub-icon">📦</span>
+          <div>
+            <div class="sub-name">Bar Restock</div>
+            <div class="sub-desc">Inventory and restock requests between locations</div>
+          </div>
+          <a href="https://barbackflow.com" target="_blank" class="sub-link">↗</a>
+        </div>
+      </div>
+      <div class="card-footer" style="margin-top:16px">
+        <div></div>
+        <a href="https://barbackflow.com" target="_blank" class="card-link">barbackflow.com ↗</a>
+      </div>
+    </div>
+
+    <!-- FASTR LITE -->
+    <div class="product-card muted">
+      <div class="card-icon" style="background:#F3F4F6">⚡</div>
+      <div class="status-badge acquired" style="font-size:11px;padding:3px 10px">Acquired · 2018</div>
+      <div class="card-name" style="color:#9CA3AF">Fastr Lite</div>
+      <div class="card-sub" style="color:#bbb">Performance monitoring tool</div>
+      <div class="card-desc" style="color:#bbb">Lightweight server performance monitoring and alerting. Built on Python with a Docker-based architecture. Sold in 2018.</div>
+      <div class="card-tags" style="margin-bottom:12px">
+        <span class="card-tag">Python</span>
+        <span class="card-tag">Docker</span>
+        <span class="card-tag">DevTools</span>
+      </div>
+      <div class="card-footer">
+        <div class="acquired-note">Sold 2018</div>
+        <div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- TEAM -->
+<section class="section">
+  <p class="section-label">Team</p>
+  <div class="team-row">
+    <div class="team-card">
+      <img class="team-avatar" src="data:image/jpeg;base64,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" alt="Pavel Volkov" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="team-avatar-fallback" style="background:linear-gradient(135deg,#3730A3,#5B4FE8);display:none">PV</div>
+      <div>
+        <div class="team-name">Pavel Volkov</div>
+        <div class="team-role">Founder</div>
+        <div class="team-bio">Author of First Steps to Financial Independence (Barnes & Noble). Full-stack developer. Builds every product end-to-end: mobile, backend, infrastructure.</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <img class="team-avatar" src="data:image/jpeg;base64,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" alt="Tatiana Simonchik" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="team-avatar-fallback" style="background:linear-gradient(135deg,#059669,#22C55E);display:none">TS</div>
+      <div>
+        <div class="team-name">Tatiana Simonchik</div>
+        <div class="team-role">Co-Founder, MoneyGator</div>
+        <div class="team-bio">Harvard Business School, Financial Accounting. Master's in Economics. Finance Manager at Amazon. Leads business and finance across the portfolio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Artifiqa</div>
+  <div class="foot-right">San Mateo, CA · 2026 · <a href="mailto:pavel.volkov@moneygator.app" style="color:inherit;text-decoration:none">Contact</a></div>
+</footer>
+
+</body>
+</html>
