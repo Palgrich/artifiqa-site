@@ -126,7 +126,7 @@ h2.section-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(30
 
 /* Moneygator panel */
 .vis.mg { background: radial-gradient(420px 320px at 85% 12%, rgba(244,180,26,.35), transparent 70%), linear-gradient(155deg, #0A5C36 0%, #124E3F 100%); color: #fff; font-family: 'Inter', sans-serif; }
-.vis.mg .mascot { position: absolute; left: 12px; bottom: 0; width: 52%; max-width: 300px; z-index: 2; filter: drop-shadow(0 24px 30px rgba(0,0,0,.35)); }
+.vis.mg .mascot { position: absolute; left: 3%; top: 3%; width: 34%; max-width: 220px; z-index: 2; filter: drop-shadow(0 24px 30px rgba(0,0,0,.35)); }
 .lesson { position: absolute; right: 22px; top: 50%; transform: translateY(-52%); width: 262px; background: #FDFBF7; color: #1E252B; border-radius: 22px; padding: 18px; box-shadow: 0 28px 50px rgba(0,0,0,.35); z-index: 3; }
 .l-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 .l-pill { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #0A5C36; background: #E3F1E9; padding: 3px 9px; border-radius: 100px; }
@@ -251,8 +251,7 @@ footer { border-top: 1px solid var(--line); }
   .phone img { border-radius: 21px; }
   .phone.p1 { bottom: -60px; }
   .vis.mg { min-height: 560px; }
-  .vis.mg .mascot { width: 40%; left: 8px; }
-  .lesson { top: 64px; transform: none; right: 50%; margin-right: -118px; }
+  .vis.mg .mascot { width: 36%; left: 4%; }
   .addr { left: 14px; width: 244px; }
   .rate { left: 14px; width: 246px; }
   .mini { grid-template-columns: 1fr 96px; padding: 24px; }
@@ -331,18 +330,10 @@ footer { border-top: 1px solid var(--line); }
       </div>
     </div>
     <div class="vis mg" aria-hidden="true">
-      <span class="chip c1">2 week streak</span>
       <img class="mascot" src="assets/mascot_gator.webp" alt="" width="865" height="1000">
-      <div class="lesson">
-        <div class="l-top"><span class="l-pill">Guess</span><span class="l-dots"><i class="on"></i><i></i><i></i><i></i><i></i></span></div>
-        <div class="l-ctx">Your dining spending is up this month</div>
-        <div class="l-q">Take a guess: how much more than last month?</div>
-        <div class="l-opt">About 10% more</div>
-        <div class="l-opt sel">About 25% more</div>
-        <div class="l-opt">About 50% more</div>
-        <div class="l-btn">See the answer</div>
-      </div>
-      <span class="cap">Example with sample numbers</span>
+      <div class="phone p1"><img src="assets/shot_moneygator_guess.webp" alt="Moneygator lesson: a guess question about the ITIN" width="600" height="1304" loading="lazy"></div>
+      <div class="phone p2"><img src="assets/shot_moneygator_home.webp" alt="Moneygator home screen with the daily spending hint" width="600" height="1304" loading="lazy"></div>
+      <span class="cap">Real screens from the iOS app, demo data</span>
     </div>
   </article>
 
